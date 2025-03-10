@@ -3,7 +3,7 @@ from google.oauth2 import service_account
 
 def create_backup(project_id, instance_name):
     # 서비스 계정 인증
-    credentials = service_account.Credentials.from_service_account_file('/home/hamwoo/api_key.json')
+    credentials = service_account.Credentials.from_service_account_file('path') #API 기입되어있는 JSON 경로 지정
     service = build('sqladmin', 'v1', credentials=credentials)
 
     try:
@@ -19,8 +19,14 @@ def create_backup(project_id, instance_name):
         print(f"인스턴스 {instance_name} 백업 생성 실패: {e}")
 
 if __name__ == "__main__":
+
+    #프로젝트 ID 기입
     PROJECT_ID = ""
+
+    #인스턴스 프리픽스 기입 | 예시 ) gamedb
     INSTANCE_PREFIX = ""
+
+    #범위지정 | 예시 ) START_INDEX = 1 , END_INDEX = 10 | 1번부터 10번까지 백업 진행함
     START_INDEX = 1
     END_INDEX = 1
 
@@ -31,7 +37,6 @@ if __name__ == "__main__":
     print("다음 인스턴스들의 백업이 생성됩니다:")
     for instance in instance_names:
         print(instance)
-
     confirmation = input("정말로 이 인스턴스들의 백업을 생성하시겠습니까? (yes/no): ")
 
     if confirmation.lower() == 'yes':
