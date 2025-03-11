@@ -7,10 +7,10 @@ TARGET_COS_BUCKET=""
 HOST_NAME=$(hostname)
 DATE=$(date -d '-1 day' '+%Y%m%d')
 
-# 원본 백업 디렉토리 (예: /dblog/backup/20250222)
+# 원본 백업 디렉토리
 LOCAL_BACKUP_DIR="$SOURCE_DIR/$DATE"
 
-# COS 업로드 대상 경로 (예: cos://backup-1324819375/호스트명/20250222)
+# COS 업로드 대상 경로
 REMOTE_TARGET_DIR="$TARGET_COS_BUCKET/$HOST_NAME/$DATE"
 
 # 원본 백업 디렉토리 존재 여부 확인
