@@ -7,7 +7,6 @@ def create_backup(project_id, instance_name):
     :param project_id: GCP 프로젝트 ID
     :param instance_name: 백업을 생성할 Cloud SQL 인스턴스 이름
     """
-    
     # 서비스 계정 인증 (JSON 키 파일 경로를 지정해야 함)
     credentials = service_account.Credentials.from_service_account_file('path')  
     service = build('sqladmin', 'v1', credentials=credentials)
